@@ -50,38 +50,33 @@ const MainPage = () => {
 
   const galleryImages = [
     {
-      url: 'https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/657759773_17874874338559323_240436636193447920_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzg1OTQyNTkxMDUzNzkxMDc2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkxOS5zZHIuQzMifQ%3D%3D&_nc_ohc=FEm9Opp9mDsQ7kNvwF-lnWg&_nc_oc=AdqOJGVLan_J90CWATPQcn10jYtDs-fhjq27SKIp35t4Dnzn54qtEunJn4PME2BUzSA&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=UMIU30IuxWBXQSNtYIG6EA&_nc_ss=7a289',
+      image: '/gallery-1.jpg',
       title: 'BMW M2 & Audi TTS',
       description: 'Dupla alemã com PPF completo',
-      likes: 0,
       link: 'https://www.instagram.com/p/DWPcPoumPZ1/'
     },
     {
-      url: 'https://instagram.fkul8-2.fna.fbcdn.net/v/t51.71878-15/561625675_1123354256512229_6389561774811257027_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MzczNzcyNDQ4MTc1MDE3NzIyNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkci5DMyJ9&_nc_ohc=JTFfqMiISqUQ7kNvwEp-Bpp&_nc_oc=AdpH_vUgEIn1u--EC0M4LJceBUsSWc8jguVpy_4BUrqF4dVCnx_bK0AiLLUmGMo0RUY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fkul8-2.fna&_nc_gid=Txa_RvXagxvoWA0fdTrfJw&_nc_ss=7a32e',
+      image: '/gallery-2.jpg',
       title: 'Porsche 911 Duo',
       description: 'Porsche 911 FULL PPF',
-      likes: 0,
       link: 'https://www.instagram.com/p/DPfEJzjABXK/'
     },
     {
-      url: 'https://instagram.fkul8-2.fna.fbcdn.net/v/t51.75761-15/480043502_17885345178229850_6958677598725871632_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzU3MDcyNTc4OTUzNzcwODcxMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTc5Ny5zZHIuQzMifQ%3D%3D&_nc_ohc=aJvyV9d68QUQ7kNvwEBiPYj&_nc_oc=Adp2yg4AT7yBv8HEvscsa3HOLrsrjO8Df1oYVOMGPOxNTMBvfuoPxWfl5pDTKXKGM6s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=8&_nc_ht=instagram.fkul8-2.fna&_nc_gid=Txa_RvXagxvoWA0fdTrfJw&_nc_ss=7a32e',
+      image: '/gallery-3.jpg',
       title: 'Corolla Detailing',
       description: 'Lavagem detalhada para brilho insano',
-      likes: 0,
       link: 'https://www.instagram.com/p/DGNxC_juKqm/'
     },
     {
-      url: 'https://instagram.flim1-2.fna.fbcdn.net/v/t51.75761-15/481574453_17886174870229850_3448367924345289828_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzU3NTM4MDQ3MjUxNjU4Njg2MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzl4MTQ3MC5zZHIuQzMifQ%3D%3D&_nc_ohc=UlhXTLSzh8gQ7kNvwGTUnhQ&_nc_oc=AdprqeLEYBVo6Fmab1TdCTa8pXNGDnu-RWQ3rIli_TKWsdlRft1t0E38V49OH35ASgA&_nc_zt=23&_nc_ht=instagram.flim1-2.fna&_nc_gid=wNewzTXaZkW0LxEIrB4uhQ&_nc_ss=7a289',
+      image: '/gallery-4.jpg',
       title: 'Corolla Renovado',
       description: 'Descontaminação e cristalização',
-      likes: 0,
       link: 'https://www.instagram.com/p/DGeTZouOnlB/'
     },
     {
-      url: 'https://scontent.cdninstagram.com/v/t51.71878-15/640413924_3178580658981179_5092029188121122760_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=e8RO7RndJw0Q7kNvwHuY5qP&_nc_oc=AdrKw_mtAe0nR1K4yQtCukI2ok6jWNXFr0nPJEu3Lr00-dwVdQHF42i_w8nG8aXulaM&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=eR8jGPYvUs3PhZ0U3UsE7g&_nc_ss=7a289&oh=00_Af3VOJkpPV2NeATAoLH1ytZ4rRm_ZLVNm2GSJb8oQeCU-w&oe=69EAF55E',
+      image: '/gallery-5.jpg',
       title: 'BMW M5 Black Satin PPF',
       description: 'Transformação completa com PPF colorido',
-      likes: 0,
       link: 'https://www.instagram.com/p/DVGxYXkgCMj/'
     }
   ];
@@ -100,8 +95,7 @@ const MainPage = () => {
             <img src="/logo.png" alt="Logo" className="company-logo" />
           </div>
           <div className="hero-text-content">
-            <h1 className="hero-title">Daud Car Detail</h1>
-            <h2 className="hero-subtitle">Detalhamento Automotivo Premium</h2>
+            <h1 className="hero-title">Detalhamento Automotivo Premium</h1>
             <p className="hero-description">
               Transforme seu veículo com nossos serviços especializados de PPF, polimento,
               vitrificação e limpeza detalhada. Qualidade e profissionalismo garantidos.
@@ -115,6 +109,15 @@ const MainPage = () => {
               <i className="fas fa-phone"></i>
               Fale Conosco
             </button>
+            <a
+              href="https://www.instagram.com/daudmasterfilm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-instagram"
+            >
+              <i className="fab fa-instagram"></i>
+              Instagram
+            </a>
           </div>
         </div>
         </div>
@@ -179,26 +182,25 @@ const MainPage = () => {
           </p>
           <div className="gallery-grid">
             {galleryImages.map((image, index) => (
-              <div className="gallery-card" key={index}>
+              <a
+                href={image.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gallery-card"
+                key={index}
+              >
                 <div className="gallery-image-wrapper">
-                  <img src={image.url} alt={image.title} className="gallery-image" />
-                  <div className="gallery-overlay">
-                    <div className="gallery-content">
-                      <h3 className="gallery-title">{image.title}</h3>
-                      <p className="gallery-description">{image.description}</p>
-                      <a
-                        href={image.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="gallery-link"
-                      >
-                        <i className="fab fa-instagram"></i>
-                        Ver no Instagram
-                      </a>
-                    </div>
+                  <img src={image.image} alt={image.title} className="gallery-image" loading="lazy" />
+                </div>
+                <div className="gallery-info">
+                  <h3 className="gallery-title">{image.title}</h3>
+                  <p className="gallery-description">{image.description}</p>
+                  <div className="gallery-link">
+                    <i className="fab fa-instagram"></i>
+                    Ver trabalho completo
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -283,6 +285,11 @@ const MainPage = () => {
             <div className="footer-contact">
               <p>
                 <i className="fas fa-map-marker-alt"></i> São José do Rio Preto - SP
+              </p>
+              <p>
+                <a href="https://www.instagram.com/daudmasterfilm/" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-instagram"></i> @daudmasterfilm
+                </a>
               </p>
             </div>
           </div>

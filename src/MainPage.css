@@ -69,77 +69,58 @@ input, textarea, select {
 }
 
 .company-logo {
-  max-height: 180px;
+  max-height: 300px;
   width: auto;
   height: auto;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  transition: transform 0.3s ease;
-  -webkit-filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   max-width: 100%;
-}
-
-.company-logo:hover {
-  transform: scale(1.05);
+  object-fit: contain;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-  color: white;
-  padding: 80px 0;
-  min-height: 100vh;
+  background: #000000;
+  color: #FFD700;
+  padding: 60px 0 80px;
+  min-height: auto;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 80%, #FFD700 0%, transparent 50%);
-  opacity: 0.1;
-}
-
 .hero-content {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 40px;
   position: relative;
   z-index: 2;
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  background: linear-gradient(45deg, #FFD700, #FFA500);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #FFD700;
+  text-align: center;
 }
 
 .hero-subtitle {
   font-size: 1.8rem;
   margin-bottom: 20px;
   font-weight: 300;
-  color: #ffffff;
+  color: #FFD700;
 }
 
 .hero-description {
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.8;
-  opacity: 0.9;
+  opacity: 1;
+  color: #FFD700;
 }
 
 .hero-buttons {
@@ -148,15 +129,15 @@ input, textarea, select {
   flex-wrap: wrap;
 }
 
-.cta-primary, .cta-secondary {
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
+.cta-primary, .cta-secondary, .cta-instagram {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -173,25 +154,37 @@ input, textarea, select {
 }
 
 .cta-primary {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: #FFD700;
   color: #000000;
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+  border: 1px solid #FFD700;
 }
 
 .cta-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+  background: #FFA500;
+  border-color: #FFA500;
 }
 
 .cta-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #FFD700;
+  border: 1px solid #FFD700;
 }
 
 .cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 215, 0, 0.1);
+  border-color: #FFA500;
+  color: #FFA500;
+}
+
+.cta-instagram {
+  background: transparent;
+  color: #E1306C;
+  border: 1px solid #E1306C;
+  text-decoration: none;
+}
+
+.cta-instagram:hover {
+  background: rgba(225, 48, 108, 0.1);
 }
 
 .hero-visual {
@@ -307,8 +300,9 @@ input, textarea, select {
 
 .service-description {
   margin-bottom: 25px;
-  color: #666;
+  color: #333;
   line-height: 1.6;
+  font-size: 1rem;
 }
 
 .service-features {
@@ -397,8 +391,9 @@ input, textarea, select {
 }
 
 .benefit-description {
-  color: #666;
+  color: #333;
   line-height: 1.6;
+  font-size: 1rem;
 }
 
 /* Gallery Section */
@@ -424,7 +419,7 @@ input, textarea, select {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #FFD700;
   position: relative;
   z-index: 2;
 }
@@ -445,7 +440,7 @@ input, textarea, select {
   text-align: center;
   margin-bottom: 60px;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #FFD700;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -463,68 +458,87 @@ input, textarea, select {
 
 .gallery-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  border: 2px solid rgba(255, 215, 0, 0.2);
-  transition: all 0.4s ease;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-card:hover {
-  transform: translateY(-8px) scale(1.02);
   border-color: #FFD700;
-  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.gallery-placeholder {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .gallery-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
   overflow: hidden;
+  position: relative;
 }
 
 .gallery-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 .gallery-card:hover .gallery-image {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.gallery-overlay {
+.gallery-placeholder::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 30px;
-  opacity: 0;
-  transition: all 0.4s ease;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
 }
 
-.gallery-card:hover .gallery-overlay {
-  opacity: 1;
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.gallery-content {
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
+.placeholder-icon {
+  color: #FFD700;
+  opacity: 0.3;
+  z-index: 1;
 }
 
-.gallery-card:hover .gallery-content {
-  transform: translateY(0);
+.placeholder-content {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.gallery-card:hover .placeholder-content {
+  color: #E1306C;
+}
+
+.gallery-info {
+  padding: 20px;
+  background: #1a1a1a;
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .gallery-title {
@@ -536,7 +550,7 @@ input, textarea, select {
 
 .gallery-description {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFD700;
   margin-bottom: 15px;
   line-height: 1.5;
 }
@@ -598,7 +612,7 @@ input, textarea, select {
 
 .contact-item:hover {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-  color: white;
+  color: #FFD700;
   border-color: #FFD700;
 }
 
@@ -609,7 +623,7 @@ input, textarea, select {
 
 .contact-item:hover .contact-link,
 .contact-item:hover .contact-address {
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFD700;
 }
 
 .contact-icon {
@@ -626,9 +640,10 @@ input, textarea, select {
 }
 
 .contact-details h4 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
-  color: #333;
+  color: #000;
+  font-weight: 700;
   transition: color 0.3s ease;
 }
 
@@ -645,9 +660,10 @@ input, textarea, select {
 }
 
 .contact-address {
-  color: #666;
-  line-height: 1.6;
+  color: #333;
+  line-height: 1.8;
   margin-bottom: 15px;
+  font-size: 1rem;
 }
 
 .maps-button {
@@ -674,17 +690,18 @@ input, textarea, select {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-  color: #666;
-  font-size: 0.95rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .schedule span {
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #000;
 }
 
 .contact-item:hover .schedule p {
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFD700;
 }
 
 .contact-item:hover .schedule span {
@@ -693,7 +710,7 @@ input, textarea, select {
 
 .form-card {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-  color: white;
+  color: #FFD700;
   padding: 40px;
   border-radius: 20px;
   text-align: center;
@@ -709,7 +726,10 @@ input, textarea, select {
 
 .form-card p {
   margin-bottom: 30px;
-  opacity: 0.9;
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .whatsapp-button, .call-button {
@@ -752,7 +772,7 @@ input, textarea, select {
 /* Footer */
 .footer {
   background: #000000;
-  color: white;
+  color: #FFD700;
   padding: 50px 0 20px;
   border-top: 2px solid #FFD700;
 }
@@ -773,12 +793,23 @@ input, textarea, select {
 }
 
 .footer-brand p {
-  color: #999;
+  color: #FFD700;
 }
 
 .footer-contact p {
   margin-bottom: 10px;
-  color: #ccc;
+  color: #FFD700;
+}
+
+.footer-contact a {
+  color: #FFD700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #FFA500;
+  text-decoration: underline;
 }
 
 .footer-contact i {
@@ -788,7 +819,7 @@ input, textarea, select {
 
 .footer-bottom {
   text-align: center;
-  color: #999;
+  color: #FFD700;
 }
 
 /* Responsive Design - Tablets e Large Mobile */
@@ -798,7 +829,7 @@ input, textarea, select {
   }
 
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .services-grid {
@@ -895,7 +926,7 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 160px;
+    max-height: 200px;
   }
 }
 
@@ -973,7 +1004,7 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 140px;
+    max-height: 180px;
   }
 
   .service-icon, .benefit-icon {
@@ -1021,6 +1052,6 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 120px;
+    max-height: 160px;
   }
 }
