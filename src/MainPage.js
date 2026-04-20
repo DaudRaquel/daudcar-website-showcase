@@ -5,23 +5,17 @@ const MainPage = () => {
     {
       icon: 'fa-shield-alt',
       title: 'PPF - Paint Protection Film',
-      description: 'Filme protetor de pintura que preserva a lataria do seu veículo contra arranhões, pedras e outros danos.',
-      features: ['Proteção total', 'Mantém o valor do veículo', 'Garantia de 5 anos', 'Invisível'],
-      price: 'Consulte valores'
+      description: 'Filme protetor de pintura que preserva a lataria do seu veículo contra arranhões, pedras e outros danos.'
     },
     {
       icon: 'fa-sparkles',
       title: 'Polimento e Vitrificação',
-      description: 'Tratamento completo que remove microarranhões e protege a pintura com durabilidade de até 12 meses.',
-      features: ['Remove arranhões', 'Brilho espelhado', 'Proteção UV', 'Repelência à água'],
-      price: 'Consulte valores'
+      description: 'Tratamento completo que remove microarranhões e protege a pintura com durabilidade de até 12 meses.'
     },
     {
       icon: 'fa-soap',
       title: 'Limpeza Detalhada',
-      description: 'Limpeza completa interna e externa, com higienização do ar-condicionado e tratamento de estofados.',
-      features: ['Limpeza completa', 'Higienização total', 'Recondicionamento', 'Perfumação ambiental'],
-      price: 'Consulte valores'
+      description: 'Limpeza completa interna e externa, com higienização do ar-condicionado e tratamento de estofados.'
     }
   ];
 
@@ -82,8 +76,7 @@ const MainPage = () => {
   ];
 
   const handleContactClick = () => {
-    // Em produção, redirecionar para WhatsApp ou formulário de contato
-    alert('Entre em contato para agendar seu atendimento!');
+    window.open('https://wa.me/5517991965884?text=Olá! Gostaria de agendar um serviço de detalhamento automotivo.', '_blank');
   };
 
   return (
@@ -138,16 +131,15 @@ const MainPage = () => {
                 </div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
-                <ul className="service-features">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>
-                      <i className="fas fa-check"></i>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div className="service-price">
-                  <span className="price-amount">{service.price}</span>
+                <div className="service-cta">
+                  <a
+                    href={`https://wa.me/5517991965884?text=Olá! Tenho interesse no serviço de ${service.title}. Poderia me passar mais informações e valores?`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="service-whatsapp-button"
+                  >
+                    Falar com atendente
+                  </a>
                 </div>
               </div>
             ))}
@@ -253,21 +245,6 @@ const MainPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="contact-form">
-              <div className="form-card">
-                <h3>Agende seu Orçamento</h3>
-                <p>Deixe seu contato e retornaremos o mais rápido possível</p>
-                <button onClick={handleContactClick} className="whatsapp-button">
-                  <i className="fab fa-whatsapp"></i>
-                  Agendar pelo WhatsApp
-                </button>
-                <button onClick={handleContactClick} className="call-button">
-                  <i className="fas fa-phone"></i>
-                  Solicitar Contato
-                </button>
               </div>
             </div>
           </div>

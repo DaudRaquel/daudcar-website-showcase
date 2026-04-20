@@ -8,10 +8,10 @@ const Chatbot = () => {
       text: "Olá! Sou o assistente virtual da Daud Car Detail. Como posso ajudá-lo hoje?",
       sender: "bot",
       options: [
-        "Quero saber sobre os serviços",
-        "Agendar um horário",
-        "Informações de contato",
-        "Ver endereço e horários"
+        "Quero saber sobre PPF",
+        "Quero saber sobre Polimento",
+        "Quero saber sobre Limpeza",
+        "Falar com atendente"
       ]
     }
   ]);
@@ -28,13 +28,10 @@ const Chatbot = () => {
   }, [messages]);
 
   const handleContactClick = (service = null) => {
-    // Em produção, redirecionar para WhatsApp ou formulário de contato
-    alert('Entre em contato para agendar seu atendimento!');
-  };
-
-  const handleMapsClick = () => {
-    // Em produção, redirecionar para Google Maps
-    alert('Nossa localização será exibida no mapa!');
+    const message = service
+      ? `Olá! Tenho interesse no serviço de ${service}. Poderia me passar mais informações e valores?`
+      : 'Olá! Gostaria de agendar um serviço de detalhamento automotivo.';
+    window.open(`https://wa.me/5517991965884?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const getServiceResponse = (message) => {
@@ -63,25 +60,28 @@ const Chatbot = () => {
 
     if (lowerMessage.includes('ppf') || lowerMessage.includes('filme protetor')) {
       return {
-        text: `Nosso serviço de PPF (Paint Protection Film) oferece proteção completa para a pintura do seu veículo.\n\n✅ Proteção contra arranhões e pedras\n✅ Mantém o valor do veículo\n✅ Garantia de 5 anos\n\n${services[0].price}\n\nDeseja agendar uma avaliação gratuita?`,
+        text: `🛡️ PPF - Paint Protection Film\n\nO PPF é um filme protetor transparente que aplicamos sobre a pintura do seu veículo para proteger contra:\n\n• Arranhões e riscos\n• Pedras de rodagem\n• Respingos de asfalto\n• Raios UV\n• Intempéries\n\nVantagens:\n✅ Proteção total da lataria\n✅ Mantém o valor do veículo\n✅ Invisível - não altera a aparência\n✅ Durabilidade de até 5 anos\n✅ Pode ser aplicado no carro inteiro ou em partes específicas\n\nIdeal para: Carros novos, esportivos, ou quem quer preservar a pintura original.\n\nQuer um orçamento personalizado para seu veículo?`,
         service: services[0].whatsappKeyword,
-        hasButtons: true
+        hasButtons: true,
+        buttons: ['Falar com atendente']
       };
     }
 
     if (lowerMessage.includes('polimento') || lowerMessage.includes('vitrificação')) {
       return {
-        text: `O polimento e vitrificação devolvem o brilho original do seu veículo.\n\n✅ Remove microarranhões\n✅ Proteção UV\n✅ Repelência à água\n✅ Durabilidade de 12 meses\n\n${services[1].price}\n\nDeseja conhecer os pacotes disponíveis?`,
+        text: `✨ Polimento e Vitrificação\n\nServiço completo para restaurar e proteger o brilho do seu veículo:\n\nPolimento:\n• Remove microarranhões\n• Elimina marcas de lavagem\n• Restaura o brilho original\n• Corrige imperfeições da pintura\n\nVitrificação:\n• Cama protetora de cerâmica\n• Proteção contra raios UV\n• Repelência à água (efeito lótus)\n• Durabilidade de 12 meses\n\nResultados:\n✅ Brilho espelhado\n✅ Paint macia ao toque\n✅ Proteção contra sujeira\n✅ Facilita a limpeza\n\nPerfeito para: Carros com pintura opaca, riscados, ou quem quer intensificar o brilho.\n\nQuer saber pacotes e valores?`,
         service: services[1].whatsappKeyword,
-        hasButtons: true
+        hasButtons: true,
+        buttons: ['Falar com atendente']
       };
     }
 
     if (lowerMessage.includes('limpeza') || lowerMessage.includes('higienização')) {
       return {
-        text: `Nossa limpeza detalhada é completa e revitaliza seu veículo por dentro e fora.\n\n✅ Limpeza interna completa\n✅ Higienização do ar-condicionado\n✅ Limpeza de estofados\n✅ Recondicionamento de plásticos\n\n${services[2].price}\n\nQuer agendar sua limpeza?`,
+        text: `🧼 Limpeza Detalhada Completa\n\nHigienização profunda interna e externa do seu veículo:\n\nExterna:\n• Lavagem técnica detalhada\n• Descontaminação de pintura\n• Limpeza de rodas e pneus\n• Tratamento de pneus (brilho)\n\nInterna:\n• Limpeza de bancos (couro ou tecido)\n• Higienização do teto\n• Limpeza de painel e console\n• Higienização do ar-condicionado\n• Limpeza de porta-malas\n\nBenefícios:\n✅ Veículo novo de novo\n✅ Remove odores e bactérias\n✅ Ambiente mais saudável\n✅ Recondiciona plásticos\n\nIndicado para: Higienização mensal, pós-viagem, ou antes de vender o veículo.\n\nQuer agendar sua limpeza?`,
         service: services[2].whatsappKeyword,
-        hasButtons: true
+        hasButtons: true,
+        buttons: ['Falar com atendente']
       };
     }
 
@@ -97,52 +97,133 @@ const Chatbot = () => {
       return {
         text: serviceResponse.text,
         service: serviceResponse.service,
-        hasButtons: serviceResponse.hasButtons
+        hasButtons: serviceResponse.hasButtons,
+        buttons: serviceResponse.buttons
       };
     }
 
-    // General responses
-    if (lowerMessage.includes('serviço') || lowerMessage.includes('o que faz')) {
+    // Greetings
+    if (lowerMessage.includes('olá') || lowerMessage.includes('oi') || lowerMessage.includes('ola') || lowerMessage.includes('bom dia') || lowerMessage.includes('boa tarde') || lowerMessage.includes('boa noite') || lowerMessage.includes('hey')) {
       return {
-        text: `Oferecemos os seguintes serviços:\n\n🚗 **PPF - Paint Protection Film**\nProteção completa para pintura\n\n🌟 **Polimento e Vitrificação**\nRestauração e proteção do brilho\n\n🧼 **Limpeza Detalhada**\nHigienização completa interna e externa\n\nQual serviço tem interesse em conhecer melhor?`,
-        hasButtons: false
-      };
-    }
-
-    if (lowerMessage.includes('agendar') || lowerMessage.includes('horário') || lowerMessage.includes('marcação')) {
-      return {
-        text: `Perfeito! Para agendar seu atendimento rapidamente:\n\n📱 **WhatsApp:** Clique no botão abaixo e já iniciaremos o atendimento!\n\n🕐 **Nossos Horários:**\nSegunda a Sexta: 8h às 18h\nSábado: 8h às 12h\n\n📍 **Localização:** Centro de São José do Rio Preto - SP`,
+        text: `Olá! 😊 Bem-vindo à Daud Car Detail!\n\nSou seu assistente virtual e estou aqui para te ajudar com tudo sobre detalhamento automotivo.\n\nComo posso te ajudar hoje?`,
         hasButtons: true,
-        buttons: ['Agendar no WhatsApp', 'Ver no Maps']
+        buttons: ['Quero saber sobre PPF', 'Quero saber sobre Polimento', 'Quero saber sobre Limpeza', 'Falar com atendente']
       };
     }
 
-    if (lowerMessage.includes('contato') || lowerMessage.includes('telefone') || lowerMessage.includes('whatsapp')) {
+    // Thanks
+    if (lowerMessage.includes('obrigado') || lowerMessage.includes('obrigada') || lowerMessage.includes('valeu') || lowerMessage.includes('thanks')) {
       return {
-        text: `Fale conosco diretamente pelo WhatsApp:\n\n📞 **WhatsApp disponível**\n\nAtendimento imediato para agendamentos e orçamentos!\n\nClique no botão para iniciar conversa.`,
+        text: `Por nada! 😊 Foi um prazer ajudar!\n\nSe precisar de mais alguma coisa, estou por aqui! Ou se preferir, pode falar diretamente com nosso atendente.`,
         hasButtons: true,
-        buttons: ['Falar no WhatsApp']
+        buttons: ['Falar com atendente']
       };
     }
 
-    if (lowerMessage.includes('endereço') || lowerMessage.includes('onde') || lowerMessage.includes('localização')) {
+    // Goodbye
+    if (lowerMessage.includes('tchau') || lowerMessage.includes('até logo') || lowerMessage.includes('adeus') || lowerMessage.includes('bye')) {
       return {
-        text: `📍 **Nossa Localização:**\nCentro de São José do Rio Preto - SP\n\n🕐 **Horários:**\nSegunda a Sexta: 8h às 18h\nSábado: 8h às 12h\n\nEstamos no centro da cidade, com fácil acesso e estacionamento disponível!\n\nClique nos botões para nos localizar ou agendar!`,
+        text: `Até logo! 👋 Espero te ver em breve!\n\nNão esqueça de seguir nosso Instagram @daudmasterfilm para ver nossos trabalhos!`,
         hasButtons: true,
-        buttons: ['Agendar no WhatsApp', 'Ver no Maps']
+        buttons: ['Falar com atendente']
       };
     }
 
-    if (lowerMessage.includes('preço') || lowerMessage.includes('valor') || lowerMessage.includes('custo')) {
+    // General services inquiry
+    if (lowerMessage.includes('serviço') || lowerMessage.includes('o que faz') || lowerMessage.includes('o que vocês fazem') || lowerMessage.includes('quais serviços') || lowerMessage.includes('vocês fazem')) {
       return {
-        text: `Nossos preços variam conforme o serviço e tamanho do veículo:\n\n🚗 **PPF:** Consulte valores\n🌟 **Polimento:** Consulte valores\n🧼 **Limpeza:** Consulte valores\n\nPara orçamento personalizado e rápido, fale conosco pelo WhatsApp!\n\nQual serviço te interessa?`,
-        hasButtons: false
+        text: `Oferecemos serviços especializados de detalhamento automotivo:\n\n🛡️ PPF - Proteção completa da pintura\n✨ Polimento e Vitrificação - Restauração do brilho\n🧼 Limpeza Detalhada - Higienização completa\n\nQual serviço você gostaria de conhecer melhor?`,
+        hasButtons: true,
+        buttons: ['Quero saber sobre PPF', 'Quero saber sobre Polimento', 'Quero saber sobre Limpeza', 'Falar com atendente']
       };
     }
 
+    // Scheduling
+    if (lowerMessage.includes('agendar') || lowerMessage.includes('horário') || lowerMessage.includes('marcação') || lowerMessage.includes('marcar') || lowerMessage.includes('quero agendar') || lowerMessage.includes('dia') || lowerMessage.includes('hora')) {
+      return {
+        text: `Perfeito! Vou te encaminhar para nosso atendente que pode agendar seu horário.\n\n🕐 Nossos Horários:\nSegunda a Sexta: 8h às 18h\nSábado: 8h às 12h`,
+        hasButtons: true,
+        buttons: ['Falar com atendente']
+      };
+    }
+
+    // Contact
+    if (lowerMessage.includes('contato') || lowerMessage.includes('telefone') || lowerMessage.includes('whatsapp') || lowerMessage.includes('zap') || lowerMessage.includes('como falar') || lowerMessage.includes('falar com vocês')) {
+      return {
+        text: `Para falar diretamente conosco, basta clicar no botão abaixo! 👇\n\nNosso WhatsApp está disponível para atendimento imediato!`,
+        hasButtons: true,
+        buttons: ['Falar com atendente']
+      };
+    }
+
+    // Location
+    if (lowerMessage.includes('endereço') || lowerMessage.includes('onde') || lowerMessage.includes('localização') || lowerMessage.includes('local') || lowerMessage.includes('fica') || lowerMessage.includes('onde fica')) {
+      return {
+        text: `📍 Estamos no Centro de São José do Rio Preto - SP\n\n🕐 Horários de funcionamento:\nSegunda a Sexta: 8h às 18h\nSábado: 8h às 12h\n\nLocal de fácil acesso com estacionamento disponível!\n\nQuer saber mais ou agendar uma visita?`,
+        hasButtons: true,
+        buttons: ['Falar com atendente']
+      };
+    }
+
+    // Price/Value
+    if (lowerMessage.includes('preço') || lowerMessage.includes('valor') || lowerMessage.includes('custo') || lowerMessage.includes('quanto custa') || lowerMessage.includes('quanto') || lowerMessage.includes('orçamento')) {
+      return {
+        text: `Nossos valores variam conforme o serviço e o tipo de veículo.\n\nPara te passar um orçamento preciso, preciso saber:\n\n1. Qual serviço você procura?\n2. Qual o modelo do seu veículo?\n\nVocê pode me contar aqui ou pode falar diretamente com nosso atendente no WhatsApp!`,
+        hasButtons: true,
+        buttons: ['Falar com atendente']
+      };
+    }
+
+    // Car protection/film
+    if (lowerMessage.includes('proteção') || lowerMessage.includes('proteger') || lowerMessage.includes('filme') || lowerMessage.includes('capa') || lowerMessage.includes('envolver')) {
+      return {
+        text: `Para proteção do seu veículo, temos o PPF (Paint Protection Film)! 🛡️\n\nÉ um filme transparente que protege a pintura contra:\n• Arranhões\n• Pedras\n• Respingos\n• Raios UV\n\nQuer saber mais detalhes sobre o PPF?`,
+        hasButtons: true,
+        buttons: ['Quero saber sobre PPF', 'Falar com atendente']
+      };
+    }
+
+    // Car shine/polish
+    if (lowerMessage.includes('brilho') || lowerMessage.includes('riscos') || lowerMessage.includes('arranhões') || lowerMessage.includes('pintura opaca') || lowerMessage.includes('restaurar')) {
+      return {
+        text: `Para devolver o brilho do seu carro, temos Polimento e Vitrificação! ✨\n\nO polimento remove riscos e a vitrificação protege por meses!\n\nPerfeito para carros com:\n• Microarranhões\n• Pintura opaca\n• Marcas de lavagem\n\nQuer conhecer melhor?`,
+        hasButtons: true,
+        buttons: ['Quero saber sobre Polimento', 'Falar com atendente']
+      };
+    }
+
+    // Cleaning
+    if (lowerMessage.includes('limpar') || lowerMessage.includes('sujeira') || lowerMessage.includes('higienizar') || lowerMessage.includes('lavar') || lowerMessage.includes('por dentro') || lowerMessage.includes('por fora')) {
+      return {
+        text: `Para limpeza completa, temos a Limpeza Detalhada! 🧼\n\nÉ uma higienização profunda:\n• Interna completa\n• Externa detalhada\n• Ar-condicionado\n• Estofados\n\nDeixa o carro novo de novo!\n\nQuer saber mais?`,
+        hasButtons: true,
+        buttons: ['Quero saber sobre Limpeza', 'Falar com atendente']
+      };
+    }
+
+    // Yes/Positive
+    if (lowerMessage.includes('sim') || lowerMessage.includes('quero') || lowerMessage.includes('com certeza') || lowerMessage.includes('ok') || lowerMessage.includes('pode')) {
+      return {
+        text: `Ótimo! Vou te encaminhar para nosso atendente que pode te ajudar melhor! 😊`,
+        hasButtons: true,
+        buttons: ['Falar com atendente']
+      };
+    }
+
+    // No/Negative
+    if (lowerMessage.includes('não') || lowerMessage.includes('nope') || lowerMessage.includes('negativo')) {
+      return {
+        text: `Sem problemas! Se mudar de ideia ou precisar de algo mais, estou aqui! 😊\n\nPosso te ajudar com mais alguma coisa?`,
+        hasButtons: true,
+        buttons: ['Quero saber sobre PPF', 'Quero saber sobre Polimento', 'Quero saber sobre Limpeza', 'Falar com atendente']
+      };
+    }
+
+    // Don't understand
     return {
-      text: `Posso te ajudar com informações sobre:\n\n✅ Nossos serviços (PPF, polimento, vitrificação, limpeza)\n✅ Agendamentos e horários\n✅ Contato e endereço\n✅ Valores e pacotes\n\nQual dessas opções você prefere?`,
-      hasButtons: false
+      text: `Desculpe, não entendi bem. 😅\n\nPosso te ajudar com informações sobre:\n• PPF - Proteção da pintura\n• Polimento e Vitrificação - Brilho e proteção\n• Limpeza Detalhada - Higienização completa\n\nOu se preferir, posso te passar para nosso atendente!`,
+      hasButtons: true,
+      buttons: ['Quero saber sobre PPF', 'Quero saber sobre Polimento', 'Quero saber sobre Limpeza', 'Falar com atendente']
     };
   };
 
@@ -157,9 +238,8 @@ const Chatbot = () => {
         text: botResponse.text,
         sender: 'bot',
         options: botResponse.hasButtons ?
-          (botResponse.buttons || ['Agendar no WhatsApp', 'Ver mais serviços', 'Falar com atendente']) :
-          (botResponse.text.includes('qual') || botResponse.text.includes('deseja') ?
-            ['Sim, quero agendar', 'Ver mais serviços', 'Falar com atendente'] : []),
+          (botResponse.buttons || ['Falar com atendente']) :
+          [],
         service: botResponse.service
       };
       setMessages(prev => [...prev, botMessage]);
@@ -169,11 +249,6 @@ const Chatbot = () => {
 
   const handleContactClickFromChat = (service = null) => {
     handleContactClick(service);
-    setIsOpen(false); // Fecha o chat após clicar
-  };
-
-  const handleMapsClickFromChat = () => {
-    handleMapsClick();
     setIsOpen(false); // Fecha o chat após clicar
   };
 
@@ -190,9 +265,8 @@ const Chatbot = () => {
           text: botResponse.text,
           sender: 'bot',
           options: botResponse.hasButtons ?
-            (botResponse.buttons || ['Agendar no WhatsApp', 'Ver mais serviços', 'Falar com atendente']) :
-            (botResponse.text.includes('qual') || botResponse.text.includes('deseja') ?
-              ['Sim, quero agendar', 'Ver mais serviços', 'Falar com atendente'] : []),
+            (botResponse.buttons || ['Falar com atendente']) :
+            [],
           service: botResponse.service
         };
         setMessages(prev => [...prev, botMessage]);
@@ -235,22 +309,28 @@ const Chatbot = () => {
                   {message.text}
                   {message.options && (
                     <div className="message-options">
-                      {message.options.includes('Agendar no WhatsApp') && (
+                      {message.options.includes('Quero saber sobre PPF') && (
                         <button
-                          className="action-button whatsapp-button"
-                          onClick={() => handleContactClickFromChat(message.service)}
+                          className="option-button"
+                          onClick={() => handleOptionClick('Quero saber sobre PPF')}
                         >
-                          <i className="fab fa-whatsapp"></i>
-                          Agendar no WhatsApp
+                          Quero saber sobre PPF
                         </button>
                       )}
-                      {message.options.includes('Ver no Maps') && (
+                      {message.options.includes('Quero saber sobre Polimento') && (
                         <button
-                          className="action-button maps-button"
-                          onClick={handleMapsClickFromChat}
+                          className="option-button"
+                          onClick={() => handleOptionClick('Quero saber sobre Polimento')}
                         >
-                          <i className="fas fa-map-marker-alt"></i>
-                          Ver no Maps
+                          Quero saber sobre Polimento
+                        </button>
+                      )}
+                      {message.options.includes('Quero saber sobre Limpeza') && (
+                        <button
+                          className="option-button"
+                          onClick={() => handleOptionClick('Quero saber sobre Limpeza')}
+                        >
+                          Quero saber sobre Limpeza
                         </button>
                       )}
                       {message.options.includes('Falar com atendente') && (
@@ -258,57 +338,7 @@ const Chatbot = () => {
                           className="action-button contact-button"
                           onClick={() => handleContactClickFromChat(message.service)}
                         >
-                          <i className="fas fa-headset"></i>
                           Falar com atendente
-                        </button>
-                      )}
-                      {message.options.includes('Sim, quero agendar') && (
-                        <button
-                          className="action-button whatsapp-button"
-                          onClick={() => handleContactClickFromChat(message.service)}
-                        >
-                          <i className="fab fa-whatsapp"></i>
-                          Sim, quero agendar
-                        </button>
-                      )}
-                      {message.options.includes('Ver mais serviços') && (
-                        <button
-                          className="option-button"
-                          onClick={() => handleOptionClick('Quero saber sobre os serviços')}
-                        >
-                          Ver mais serviços
-                        </button>
-                      )}
-                      {message.options.includes('Quero saber sobre os serviços') && (
-                        <button
-                          className="option-button"
-                          onClick={() => handleOptionClick('Quero saber sobre os serviços')}
-                        >
-                          Quero saber sobre os serviços
-                        </button>
-                      )}
-                      {message.options.includes('Agendar um horário') && (
-                        <button
-                          className="option-button"
-                          onClick={() => handleOptionClick('Agendar um horário')}
-                        >
-                          Agendar um horário
-                        </button>
-                      )}
-                      {message.options.includes('Informações de contato') && (
-                        <button
-                          className="option-button"
-                          onClick={() => handleOptionClick('Informações de contato')}
-                        >
-                          Informações de contato
-                        </button>
-                      )}
-                      {message.options.includes('Ver endereço e horários') && (
-                        <button
-                          className="option-button"
-                          onClick={() => handleOptionClick('Ver endereço e horários')}
-                        >
-                          Ver endereço e horários
                         </button>
                       )}
                     </div>

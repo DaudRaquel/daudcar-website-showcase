@@ -305,43 +305,32 @@ input, textarea, select {
   font-size: 1rem;
 }
 
-.service-features {
-  list-style: none;
-  margin-bottom: 30px;
+.service-cta {
+  margin-top: 25px;
 }
 
-.service-features li {
-  display: flex;
+.service-whatsapp-button {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
-  color: #555;
+  padding: 12px 25px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.service-features i {
-  color: #FFD700;
-  font-size: 0.9rem;
+.service-whatsapp-button:hover {
+  background: #128c7e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
-.service-price {
-  padding-top: 20px;
-  border-top: 1px solid #f0f0f0;
-}
-
-.price-label {
-  display: block;
-  font-size: 0.9rem;
-  color: #999;
-  margin-bottom: 5px;
-}
-
-.price-amount {
-  font-size: 1.8rem;
-  font-weight: bold;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.service-whatsapp-button i {
+  font-size: 1.2rem;
 }
 
 /* Benefits Section */
