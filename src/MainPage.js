@@ -150,7 +150,7 @@ const MainPage = () => {
       {/* Benefits Section */}
       <section className="benefits">
         <div className="container">
-          <h2 className="section-title">Por que escolher Daud Car Detail?</h2>
+          <h2 className="section-title">Por que escolher Daud Masterfilm?</h2>
           <div className="benefits-grid">
             {benefits.map((benefit, index) => (
               <div className="benefit-card" key={index}>
@@ -209,28 +209,35 @@ const MainPage = () => {
               </p>
 
               <div className="contact-items">
-                <div className="contact-item">
+                <div className="contact-item clickable" onClick={() => window.open('tel:+5517991965884')}>
                   <div className="contact-icon">
                     <i className="fas fa-phone"></i>
                   </div>
                   <div className="contact-details">
-                    <h4>Contato</h4>
-                    <p>WhatsApp e telefone disponíveis</p>
+                    <h4>Telefone</h4>
+                    <a href="tel:+5517991965884" className="contact-link">(17) 99196-5884</a>
+                    <p className="contact-subtitle">WhatsApp e telefone disponíveis</p>
                   </div>
                 </div>
 
-                <div className="contact-item">
+                <a
+                  href="https://www.google.com/maps/dir//Daud+Car+Detail+-+Especialistas+em+PPF,+Polimento+e+Vitrifica%C3%A7%C3%A3o,+R.+Prudente+de+Moraes,+3203+-+Centro,+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+-+SP,+15025-045/@-20.7959736,-49.334863,3448m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x94bdad6613cd0a1f:0x462e1869168828b4!2m2!1d-49.3771316!2d-20.8106515?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-item clickable"
+                >
                   <div className="contact-icon">
                     <i className="fas fa-map-marker-alt"></i>
                   </div>
                   <div className="contact-details">
                     <h4>Localização</h4>
                     <p className="contact-address">
-                      Centro de São José do Rio Preto - SP<br />
-                      Acesso fácil e estacionamento disponível
+                      R. Prudente de Moraes, 3203 - Centro<br />
+                      São José do Rio Preto - SP<br />
+                      <span className="maps-link">Clique para abrir no Google Maps</span>
                     </p>
                   </div>
-                </div>
+                </a>
 
                 <div className="contact-item">
                   <div className="contact-icon">
@@ -260,11 +267,22 @@ const MainPage = () => {
               <p>Detalhamento Automotivo Premium</p>
             </div>
             <div className="footer-contact">
-              <p>
-                <i className="fas fa-map-marker-alt"></i> São José do Rio Preto - SP
+              <p className="footer-address">
+                <i className="fas fa-map-marker-alt"></i>
+                <a href="https://www.google.com/maps/dir//Daud+Car+Detail+-+Especialistas+em+PPF,+Polimento+e+Vitrifica%C3%A7%C3%A3o,+R.+Prudente+de+Moraes,+3203+-+Centro,+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+-+SP,+15025-045/@-20.7959736,-49.334863,3448m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x94bdad6613cd0a1f:0x462e1869168828b4!2m2!1d-49.3771316!2d-20.8106515?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="footer-link">
+                  R. Prudente de Moraes, 3203 - Centro, São José do Rio Preto - SP
+                </a>
               </p>
               <p>
-                <a href="https://www.instagram.com/daudmasterfilm/" target="_blank" rel="noopener noreferrer">
+                <a href="tel:+5517991965884" className="footer-link">
+                  <i className="fas fa-phone"></i> (17) 99196-5884
+                </a>
+              </p>
+              <p>
+                <a href="https://www.instagram.com/daudmasterfilm/" target="_blank" rel="noopener noreferrer" className="footer-link">
                   <i className="fab fa-instagram"></i> @daudmasterfilm
                 </a>
               </p>

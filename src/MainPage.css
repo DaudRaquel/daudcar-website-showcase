@@ -52,7 +52,7 @@ input, textarea, select {
   grid-column: 1 / -1;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .hero-text-content {
@@ -65,11 +65,11 @@ input, textarea, select {
 .logo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .company-logo {
-  max-height: 300px;
+  max-height: 350px;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -80,7 +80,7 @@ input, textarea, select {
 .hero {
   background: #000000;
   color: #FFD700;
-  padding: 60px 0 80px;
+  padding: 40px 0 60px;
   min-height: auto;
   display: flex;
   align-items: center;
@@ -597,12 +597,39 @@ input, textarea, select {
   border-radius: 15px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.contact-item.clickable {
+  cursor: pointer;
+}
+
+.contact-item.clickable::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #FFD700;
+  border-top: 2px solid #FFD700;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-item.clickable:hover::after {
+  opacity: 1;
 }
 
 .contact-item:hover {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
   color: #FFD700;
   border-color: #FFD700;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
 }
 
 .contact-item:hover .contact-icon {
@@ -643,16 +670,48 @@ input, textarea, select {
 .contact-link {
   color: #FFD700;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   transition: color 0.3s ease;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+.contact-item:hover .contact-subtitle {
+  color: rgba(255, 215, 0, 0.7);
 }
 
 .contact-address {
   color: #333;
   line-height: 1.8;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-size: 1rem;
+}
+
+.maps-link {
+  color: #25d366;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.maps-link::before {
+  content: '\f041';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.contact-item:hover .maps-link {
+  color: #FFD700;
 }
 
 .maps-button {
@@ -790,13 +849,22 @@ input, textarea, select {
   color: #FFD700;
 }
 
-.footer-contact a {
-  color: #FFD700;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.footer-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.footer-contact a:hover {
+.footer-link {
+  color: #FFD700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link:hover {
   color: #FFA500;
   text-decoration: underline;
 }
@@ -833,7 +901,7 @@ input, textarea, select {
 
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 0;
+    padding: 40px 0 50px;
     min-height: auto;
   }
 
@@ -915,14 +983,14 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 200px;
+    max-height: 280px;
   }
 }
 
 /* Small Mobile Devices */
 @media (max-width: 480px) {
   .hero {
-    padding: 40px 0;
+    padding: 30px 0 40px;
   }
 
   .hero-content {
@@ -993,7 +1061,7 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 180px;
+    max-height: 220px;
   }
 
   .service-icon, .benefit-icon {
@@ -1041,6 +1109,6 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 160px;
+    max-height: 200px;
   }
 }
