@@ -52,7 +52,7 @@ input, textarea, select {
   grid-column: 1 / -1;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .hero-text-content {
@@ -65,15 +65,14 @@ input, textarea, select {
 .logo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .company-logo {
-  max-height: 350px;
-  width: auto;
+  width: 100%;
+  max-width: 1000px;
   height: auto;
-  max-width: 100%;
-  object-fit: contain;
+  display: block;
 }
 
 /* Hero Section */
@@ -104,6 +103,7 @@ input, textarea, select {
   font-size: 3.5rem;
   font-weight: 600;
   margin-bottom: 20px;
+  margin-top: 10px;
   color: #FFD700;
   text-align: center;
 }
@@ -983,7 +983,8 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 280px;
+    width: 100%;
+    max-width: 700px;
   }
 }
 
@@ -1061,7 +1062,8 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 220px;
+    width: 100%;
+    max-width: 500px;
   }
 
   .service-icon, .benefit-icon {
@@ -1109,6 +1111,7 @@ input, textarea, select {
   }
 
   .company-logo {
-    max-height: 200px;
+    width: 100%;
+    max-width: 400px;
   }
 }
