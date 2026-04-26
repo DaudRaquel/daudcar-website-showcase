@@ -5,7 +5,7 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
-      text: "Olá! Sou o assistente virtual da Daud Car Detail. Como posso ajudá-lo hoje?",
+      text: "Olá! Sou o assistente virtual da Daud Masterfilm. Como posso ajudá-lo hoje?",
       sender: "bot",
       options: [
         "Quero saber sobre PPF",
@@ -105,7 +105,7 @@ const Chatbot = () => {
     // Greetings
     if (lowerMessage.includes('olá') || lowerMessage.includes('oi') || lowerMessage.includes('ola') || lowerMessage.includes('bom dia') || lowerMessage.includes('boa tarde') || lowerMessage.includes('boa noite') || lowerMessage.includes('hey')) {
       return {
-        text: `Olá! 😊 Bem-vindo à Daud Car Detail!\n\nSou seu assistente virtual e estou aqui para te ajudar com tudo sobre detalhamento automotivo.\n\nComo posso te ajudar hoje?`,
+        text: `Olá! 😊 Bem-vindo à Daud Masterfilm!\n\nSou seu assistente virtual e estou aqui para te ajudar com tudo sobre detalhamento automotivo.\n\nComo posso te ajudar hoje?`,
         hasButtons: true,
         buttons: ['Quero saber sobre PPF', 'Quero saber sobre Polimento', 'Quero saber sobre Limpeza', 'Falar com atendente']
       };
@@ -292,7 +292,7 @@ const Chatbot = () => {
                 <i className="fas fa-car"></i>
               </div>
               <div>
-                <h3>Daud Car Detail</h3>
+                <h3>Daud Masterfilm</h3>
                 <span className="status-dot"></span>
                 <span className="status-text">Online</span>
               </div>

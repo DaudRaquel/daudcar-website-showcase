@@ -263,7 +263,7 @@ const MainPage = () => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-brand">
-              <h3>Daud Car Detail</h3>
+              <h3>Daud Masterfilm</h3>
               <p>Detalhamento Automotivo Premium</p>
             </div>
             <div className="footer-contact">
@@ -289,7 +289,7 @@ const MainPage = () => {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 Daud Car Detail. Todos os direitos reservados.</p>
+            <p>&copy; 2024 Daud Masterfilm. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
